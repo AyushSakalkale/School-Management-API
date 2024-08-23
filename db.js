@@ -10,12 +10,17 @@ const databaseConnection = async () => {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: process.env.DB_PORT,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    connectTimeout: 10000,
+    acquireTimeout: 10000
   });
 
   console.log("Connected to the MySQL database.");
-  return connection; // Return the connection
+  return connection; 
 };
 
-// Export the connection directly
+
 const connection = await databaseConnection();
 export {connection};
