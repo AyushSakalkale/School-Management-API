@@ -12,9 +12,9 @@ const databaseConnection = async () => {
     port: process.env.DB_PORT,
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0,
-    connectTimeout: 10000,
-    acquireTimeout: 10000
+    queueLimit: 5,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 10000
   });
 
   console.log("Connected to the MySQL database.");
